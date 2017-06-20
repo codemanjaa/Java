@@ -1,7 +1,18 @@
-
 public class CaserCipher {
 
 	
+	
+	public static void testCaesar(){
+		
+		int key = 17;
+		FileResource fr = new FileResource("M:/Coursera/src/message1.txt");
+		String message = fr.asString();
+		String encrypted = encrypt(message, key);
+		System.out.println(encrypted);
+		String decrypted = encrypt(encrypted, 26-key);
+		System.out.println(decrypted);
+		
+	}
 	
 	public static String encrypt(String input, int key){
 		input = input.toUpperCase();
@@ -64,6 +75,7 @@ public class CaserCipher {
 
 		//String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		//String encryptalpha = alphabet.substring(23) + alphabet.substring(0, 23);
+		testCaesar();
 		System.out.println(encrypt("FIRST LEGION ATTACK EAST FLANK!", 23));
 		eyeballDecrypt("LUJYFWAPVU huk zljbypaf hyl mbukhtluahs whyaz vm avkhf'z Pualyula");
 		
