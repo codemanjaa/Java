@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>TestOlympicsMDB</display-name>
+  <display-name>TestBanqueSecurity</display-name>
   <description></description>
+  
   <context-param>
     <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
     <param-value>.jsp</param-value>
@@ -31,12 +32,43 @@
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>welcomeOlympics.xhtml</welcome-file>
+    <welcome-file>welcomeBank.xhtml</welcome-file>
   </welcome-file-list>
   <env-entry>
     <env-entry-name>jsf/ClientSideSecretKey</env-entry-name>
     <env-entry-type>java.lang.String</env-entry-type>
     <env-entry-value>am9kZXRlcHV0b2hhY2tlcg==</env-entry-value>
   </env-entry>
-  <display-name>Olympics</display-name>
+  <display-name>TP13-WEB-SECURE-E</display-name>
+  
+  
+  	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Secure Content</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>client</role-name>
+			<role-name>banker</role-name>
+			<role-name>visitor</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>Restricted Access!</realm-name>
+	</login-config>
+
+	<security-role>
+		<description>client</description>
+		<role-name>client</role-name>
+	</security-role>
+	<security-role>
+		<description>banker</description>
+		<role-name>banker</role-name>
+	</security-role>
+	<security-role>
+		<description>visitor</description>
+		<role-name>visitor</role-name>
+	</security-role>
 </web-app>
