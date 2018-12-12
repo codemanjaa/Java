@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Client")
-public class Position implements Serializable {
+public class Athlet implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -64,9 +64,9 @@ public class Position implements Serializable {
 
 	
 	// constructors
-	public Position() {
+	public Athlet() {
 	}
-	public Position(String firstname, String lastname) {
+	public Athlet(String firstname, String lastname) {
 		this.lastname = lastname;
 		this.firstname = firstname;
 	}
